@@ -1,5 +1,6 @@
 package com.portfolio.controller;
 
+import com.portfolio.model.PostModel;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
@@ -14,5 +15,9 @@ public class PostController extends AbstractController{
 
     public Response getPostsList(){
         return given(this.client).get(BASE_ENDPOINT);
+    }
+
+    public Response createPost(PostModel body){
+        return given(this.client).body(body).post(BASE_ENDPOINT);
     }
 }
